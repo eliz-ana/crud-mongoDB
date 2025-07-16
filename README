@@ -1,0 +1,45 @@
+# 📦 API REST de Productos con Express + MongoDB + Mongoose
+
+Este proyecto es una API REST construida con **Node.js**, **Express** y **MongoDB**, utilizando **Mongoose** como ODM. Permite gestionar productos mediante operaciones CRUD y aplica buenas prácticas de estructura con rutas y controladores separados.
+
+---
+
+## 🚀 Tecnologías utilizadas
+
+- Node.js
+- Express
+- MongoDB
+- Mongoose
+- dotenv
+
+---
+
+## 📁 Estructura del proyecto
+
+mi-proyecto-mongo/
+│
+├── controllers/
+│ └── products.controller.js # Lógica del CRUD
+│
+├── models/
+│ └── Product.js # Schema y modelo de Mongoose
+│
+├── routes/
+│ └── products.router.js # Rutas REST del recurso productos
+│
+├── .env # Variables de entorno (no subir)
+├── .gitignore # Ignora node_modules y .env
+├── index.js # Punto de entrada
+└── README.md
+
+---
+
+## Endpoints disponibles
+
+| Método | Ruta            | Descripción                      |
+| ------ | --------------- | -------------------------------- |
+| GET    | `/products`     | Obtener todos los productos      |
+| GET    | `/products/:id` | Obtener un producto por ID       |
+| POST   | `/products`     | Crear un nuevo producto          |
+| PUT    | `/products/:id` | Actualizar un producto existente |
+| DELETE | `/products/:id` | Eliminar un producto             |
