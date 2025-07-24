@@ -31,7 +31,10 @@ export const createProduct = async (req, res) => {
     const newProduct = new Product({ name, price, category });
     await newProduct.save();
     res.status(201).json(newProduct);
-  } catch {
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: error.message });
+    }
     res.status(500).json({ error: "Error al crear producto" });
   }
 };
@@ -49,8 +52,14 @@ export const updateProduct = async (req, res) => {
     if (!updated)
       return res.status(404).json({ error: "Producto no encontrado" });
     res.json({ message: "Producto actualizado", updated });
-  } catch {
-    res.status(400).json({ error: "ID inválido o error al actualizar" });
+  } catch (error) {
+    if (error.name === "ValidationError") {
+      return res.status(400).json({ error: error.message });
+    }
+    if (error.name === "CastError") {
+      return res.status(400).json({ error: "ID inválido" });
+    }
+    res.status(500).json({ error: "Error al actualizar producto" });
   }
 };
 
@@ -64,7 +73,10 @@ export const deleteProduct = async (req, res) => {
         .json({ error: "Producto no encontrado para eliminar" });
 
     res.json({ message: "Producto eliminado correctamente", deleted });
-  } catch {
-    res.status(400).json({ error: "ID inválido o error al eliminar" });
+  } catch (error) {
+    if (error.name === "CastError") {
+      return res.status(400).json({ error: "ID inválido" });
+    }
+    res.status(500).json({ error: "Error al eliminar producto" });
   }
 };

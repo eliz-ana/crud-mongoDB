@@ -1,6 +1,7 @@
 # 📦 API REST de Productos con Express + MongoDB + Mongoose
 
-Este proyecto es una API REST construida con **Node.js**, **Express** y **MongoDB**, utilizando **Mongoose** como ODM. Permite gestionar productos mediante operaciones CRUD y aplica buenas prácticas de estructura con rutas y controladores separados.
+Este proyecto es una API REST construida con **Node.js**, **Express** y **MongoDB**, utilizando **Mongoose** como ODM.
+ Permite gestionar productos mediante operaciones CRUD y aplica buenas prácticas de estructura con rutas y controladores separados.
 
 ---
 
